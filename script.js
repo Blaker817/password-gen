@@ -17,15 +17,16 @@
 
 
 // Get references to the #generate element
-var Upper = "ABCDEFGHIJKLMNOPQRSTUVWXYZ"
+var upper = "ABCDEFGHIJKLMNOPQRSTUVWXYZ"
 var lower = "abcdefghijklmnopqrstuvwxyz"
-var number = "1234567890"
+var numbers = "1234567890"
 var special = "'!@#$%^&*()_+{}:<>?/[]'"
 
 var generateBtn = document.querySelector("#generate");
 
 function generatePassword() {
   var password = ''
+  var passwordCharacterHolder = ''
 
   var pwdLength = prompt("Between 8 and 128 how many characters would you like your password to contain?")
 
@@ -46,6 +47,21 @@ function generatePassword() {
     wantsNumbers = confirm('would you like numbers?')
     wantsSpecial = confirm('would you like special characters?')
   }
+
+  if(wantsUpper) {
+    passwordCharacterHolder += upper
+  }
+  if(wantsLower) {
+    passwordCharacterHolder += lower
+  }
+  if(wantsNumbers) {
+    passwordCharacterHolder += numbers
+  }
+  if(wantsSpecial) {
+    passwordCharacterHolder += special
+  }
+
+  console.log(passwordCharacterHolder)
 
   return password
 }
