@@ -29,12 +29,23 @@ function generatePassword() {
 
   var pwdLength = prompt("Between 8 and 128 how many characters would you like your password to contain?")
 
-  while(pwdLength < 8 || pwdLength > 128) {
+  while (pwdLength < 8 || pwdLength > 128) {
     alert('Password must be a number between 8 and 128')
     pwdLength = prompt("Between 8 and 128 how many characters would you like your password to contain?")
   }
 
- 
+  var wantsUpper = confirm('would you like uppercase letters?')
+  var wantsLower = confirm('would you like lowercase letters?')
+  var wantsNumbers = confirm('would you like numbers?')
+  var wantsSpecial = confirm('would you like special characters?')
+
+  while (!wantsUpper && !wantsLower && !wantsNumbers && !wantsSpecial) {
+    alert('You must choose at least one character type')
+    wantsUpper = confirm('would you like uppercase letters?')
+    wantsLower = confirm('would you like lowercase letters?')
+    wantsNumbers = confirm('would you like numbers?')
+    wantsSpecial = confirm('would you like special characters?')
+  }
 
   return password
 }
